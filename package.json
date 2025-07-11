@@ -1,0 +1,14 @@
+{
+  "name": "smart-code-tutor",
+  "version": "1.0.0",
+  "description": "Interactive code interpreter with RAG-powered explanations",
+  "scripts": {
+    "dev": "concurrently \"./backend/start.sh\" \"cd frontend && pnpm dev\"",
+    "frontend": "cd frontend && pnpm dev",
+    "backend": "./backend/start.sh",
+    "install-all": "cd frontend && pnpm install && cd ../backend && source venv/bin/activate && python3 -m pip install -r requirements.txt"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
