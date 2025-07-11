@@ -2,6 +2,8 @@
 
 An interactive code interpreter with AI-powered explanations, featuring real-time code execution and educational insights powered by Google's Gemini AI.
 
+![Smart Code Tutor Screenshot](./SS.png)
+
 ## Features
 
 - 🚀 **Real-time Code Execution**: Secure code execution using E2B sandboxes

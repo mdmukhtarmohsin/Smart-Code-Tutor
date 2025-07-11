@@ -171,11 +171,14 @@ if result.returncode != 0:
                 output = ""
                 error = ""
                 
-                # Collect stdout logs
+                # Collect stdout logs - logs.stdout is a list of strings
                 if hasattr(execution, 'logs') and execution.logs:
-                    for log in execution.logs:
-                        if hasattr(log, 'line'):
-                            output += log.line + "\n"
+                    if hasattr(execution.logs, 'stdout') and execution.logs.stdout:
+                        output += "\n".join(execution.logs.stdout)
+                    
+                    # Collect stderr logs - logs.stderr is a list of strings
+                    if hasattr(execution.logs, 'stderr') and execution.logs.stderr:
+                        error += "\n".join(execution.logs.stderr)
                 
                 # Collect results (charts, displays, etc.)
                 if hasattr(execution, 'results') and execution.results:
@@ -187,7 +190,7 @@ if result.returncode != 0:
                 
                 # Handle execution errors
                 if hasattr(execution, 'error') and execution.error:
-                    error = str(execution.error)
+                    error += str(execution.error)
                     success = False
                 
                 return {
